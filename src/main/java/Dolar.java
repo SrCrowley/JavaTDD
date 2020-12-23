@@ -7,4 +7,8 @@ public class Dolar {
     public Dolar veces(int veces){
         return new Dolar(monto*veces);
     }
+    public boolean equals(Object object){
+        Dolar dolar = (Dolar) object;
+        return monto == dolar.monto;
+    }
 }
