@@ -8,9 +8,9 @@ public class MoneyTest {
     void testMultiplicacion(){
         Dolar cinco = new Dolar(5);
         Dolar producto = cinco.veces(2);
-        assertEquals(10, producto.monto);
+        assertEquals(new Dolar(10), producto);
         producto = cinco.veces(3);
-        assertEquals(15, producto.monto);
+        assertEquals(new Dolar(15), producto);
     }
     @Test
     void testEquals(){
