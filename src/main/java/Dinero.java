@@ -1,11 +1,14 @@
-public abstract class Dinero {
+public class Dinero {
     protected int monto;
     protected String moneda;
     public Dinero(int monto, String moneda){
         this.monto = monto;
         this.moneda = moneda;
     }
-    public abstract Dinero veces(int multiplo);
+
+    public Dinero veces(int veces){
+        return new Dinero(this.monto * veces, this.moneda);
+    }
     protected String moneda(){
         return moneda;
     }
@@ -17,7 +20,7 @@ public abstract class Dinero {
     }
     public boolean equals(Object object){
         Dinero dinero = (Dinero) object;
-        return monto == dinero.monto && this.getClass().equals(object.getClass());
+        return monto == dinero.monto && this.moneda== dinero.moneda;
     }
 
 }
