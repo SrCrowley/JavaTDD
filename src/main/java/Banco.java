@@ -1,5 +1,9 @@
 public class Banco {
     Dinero reducir(Expresion fuente, String aMoneda){
-        return Dinero.dolar(10); //solo para pasar el test lol
+        return fuente.reducir((aMoneda));
+//        if (fuente instanceof Dinero) return (Dinero) fuente;
+//        Suma suma = (Suma) fuente;
+//        return suma.reducir(aMoneda);
     }
+
 }

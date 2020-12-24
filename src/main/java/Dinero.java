@@ -24,7 +24,11 @@ public class Dinero implements Expresion {
         Dinero dinero = (Dinero) object;
         return monto == dinero.monto && this.moneda.equals(dinero.moneda);
     }
-    public Expresion mas(Dinero sumar){
-        return new Dinero(monto + sumar.monto, moneda);
+    @Override
+    public Dinero reducir(String a){
+        return this;
+    }
+    public Expresion mas(Dinero addend){
+        return new Suma(this, addend);
     }
 }
