@@ -1,10 +1,12 @@
-public class Dolar extends Moneda{
+public class Dolar extends Dinero {
 
-    public Dolar(int monto) {
-        this.monto = monto;
+    private String moneda;
+    public Dolar(int monto, String moneda) {
+        super(monto, moneda);
     }
-    public Dolar veces(int veces){
-        return new Dolar(monto*veces);
+
+    public Dinero veces(int veces){
+        return Dinero.dolar(monto*veces);
     }
 
 }

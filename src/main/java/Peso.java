@@ -1,10 +1,10 @@
-public class Peso extends Moneda{
-
-    public Peso(int monto) {
-        this.monto = monto;
+public class Peso extends Dinero {
+    public Peso(int monto, String moneda) {
+        super(monto, moneda);
     }
-    public Peso veces(int veces){
-        return new Peso(monto*veces);
+
+    public Dinero veces(int veces){
+        return Dinero.peso(monto*veces);
     }
 
 }
