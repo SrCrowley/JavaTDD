@@ -1,4 +1,6 @@
-public class Dinero {
+import java.beans.Expression;
+
+public class Dinero implements Expresion {
     protected int monto;
     protected String moneda;
     public Dinero(int monto, String moneda){
@@ -20,7 +22,9 @@ public class Dinero {
     }
     public boolean equals(Object object){
         Dinero dinero = (Dinero) object;
-        return monto == dinero.monto && this.moneda== dinero.moneda;
+        return monto == dinero.monto && this.moneda.equals(dinero.moneda);
     }
-
+    public Expresion mas(Dinero sumar){
+        return new Dinero(monto + sumar.monto, moneda);
+    }
 }

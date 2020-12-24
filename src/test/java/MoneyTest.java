@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.beans.Expression;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -31,5 +33,13 @@ public class MoneyTest {
     void testMoneda(){
         assertEquals("USD", Dinero.dolar(1).moneda());
         assertEquals("ARP", Dinero.peso(1).moneda());
+    }
+    @Test
+    void testSumaSimple(){
+        Dinero cinco = Dinero.dolar(5);
+        Expresion suma = cinco.mas(cinco);
+        Banco banco = new Banco();
+        Dinero reducido = banco.reducir(suma, "USD");
+        assertEquals(Dinero.dolar(10), reducido);
     }
 }
