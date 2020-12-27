@@ -1,5 +1,7 @@
 public interface Expresion {
     Dinero reducir(Banco banco, String a);
 
-    public Expresion mas(Expresion addend);
+    Expresion mas(Expresion addend);
+
+    Expresion veces(int veces);
 }

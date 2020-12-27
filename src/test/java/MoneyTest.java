@@ -84,4 +84,24 @@ public class MoneyTest {
         Dinero resultado = banco.reducir(diezDol.mas(cincoPe), "USD");
         assertEquals(Dinero.dolar(15), resultado);
     }
+    @Test
+    void testAdicionMasDinero(){
+        Expresion diezDol = Dinero.dolar(10);
+        Expresion cincoPe = Dinero.peso(5);
+        Banco banco = new Banco();
+        banco.addTasa("ARP", "USD", 1);
+        Expresion suma = new Suma(diezDol, cincoPe).mas(diezDol);
+        Dinero resultado = banco.reducir(suma, "USD");
+        assertEquals(Dinero.dolar(25), resultado);
+    }
+    @Test
+    void testVecesSuma(){
+        Expresion diezDol = Dinero.dolar(10);
+        Expresion cincoPe = Dinero.peso(5);
+        Banco banco = new Banco();
+        banco.addTasa("ARP", "USD", 1);
+        Expresion suma = new Suma(diezDol, cincoPe).veces(2);
+        Dinero resultado = banco.reducir(suma, "USD");
+        assertEquals(Dinero.dolar(30), resultado);
+    }
 }

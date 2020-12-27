@@ -13,6 +13,11 @@ public class Suma implements Expresion{
 
     @Override
     public Expresion mas(Expresion addend) {
-        return null;
+        return new Suma(this, addend);
+    }
+
+    @Override
+    public Expresion veces(int veces) {
+        return new Suma(augmend.veces(veces), addmend.veces(veces));
     }
 }
