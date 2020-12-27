@@ -75,4 +75,13 @@ public class MoneyTest {
         assertEquals(1, new Banco().tasa("USD", "USD"));
         assertEquals(1, new Banco().tasa("ARP", "ARP"));
     }
+    @Test
+    void testAdicionMixta(){
+        Expresion diezDol = Dinero.dolar(10);
+        Expresion cincoPe = Dinero.peso(5);
+        Banco banco = new Banco();
+        banco.addTasa("ARP", "USD", 1);
+        Dinero resultado = banco.reducir(diezDol.mas(cincoPe), "USD");
+        assertEquals(Dinero.dolar(15), resultado);
+    }
 }

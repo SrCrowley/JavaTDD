@@ -10,7 +10,7 @@ public class Dinero implements Expresion {
         this.moneda = moneda;
     }
 
-    public Dinero veces(int veces){
+    public Expresion veces(int veces){
         return new Dinero(this.monto * veces, this.moneda);
     }
 
@@ -38,7 +38,7 @@ public class Dinero implements Expresion {
         return new Dinero(monto / banco.tasa(this.moneda, a), a);
     }
 
-    public Expresion mas(Dinero addend){
+    public Expresion mas(Expresion addend){
         return new Suma(this, addend);
     }
 }
