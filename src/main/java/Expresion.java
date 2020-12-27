@@ -1,3 +1,3 @@
 public interface Expresion {
-    Dinero reducir(String a);
+    Dinero reducir(Banco banco, String a);
 }

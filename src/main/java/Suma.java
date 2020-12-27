@@ -6,7 +6,7 @@ public class Suma implements Expresion{
         this.augmend = augmend;
         this.addmend = addmend;
     }
-    public Dinero reducir(String a){
+    public Dinero reducir(Banco banco, String a){
         int monto = augmend.monto + addmend.monto;
         return new Dinero(monto, a);
     }

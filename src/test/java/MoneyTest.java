@@ -63,4 +63,16 @@ public class MoneyTest {
         Dinero resultado = banco.reducir(Dinero.dolar(1), "USD");
         assertEquals(Dinero.dolar(1), resultado);
     }
+    @Test
+    void testReducirDineroMonedasDistintas(){
+        Banco banco = new Banco();
+        banco.addTasa("ARP", "USD", 200);
+        Dinero resultado = banco.reducir(Dinero.peso(200), "USD");
+        assertEquals(Dinero.dolar(1), resultado);
+    }
+    @Test
+    void testTasaDeIdentidad(){
+        assertEquals(1, new Banco().tasa("USD", "USD"));
+        assertEquals(1, new Banco().tasa("ARP", "ARP"));
+    }
 }
